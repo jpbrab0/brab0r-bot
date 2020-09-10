@@ -1,6 +1,5 @@
 # TwitchTv Bot
 ## Feito por [João Pedro Resende](https://linkedin.com/in/jpresdev)👨‍💻
----
 
 ## Apresentação
 
