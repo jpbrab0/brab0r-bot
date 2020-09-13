@@ -4,10 +4,10 @@ const settings = require("./opts.json");
 // Definir opções de configuração
 const opts = {
   identity: {
-    username: settings.botname,
-    password: settings.token,
+    username:'brab0bot',
+    password: process.env.TOKEN,
   },
-  channels: [settings.channel],
+  channels: ['jpbrab0'],
 };
 // Cria um cliente tmi com  nossas opções
 const client = new tmi.client(opts);
