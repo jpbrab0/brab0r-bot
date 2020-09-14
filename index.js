@@ -112,7 +112,7 @@ function fornoobs(alvo,contexto, mensagem, bot){
     client.say(alvo, `Olá, seja bem-vindo(a) a live! pepeDD  ` )
   }
 }
-function commands(alvo, contexto, mensagem, bot) {
+function runCommands(alvo, contexto, mensagem, bot) {
   if (bot) {
     return;
   }  
@@ -124,8 +124,7 @@ function commands(alvo, contexto, mensagem, bot) {
   github(alvo, contexto, mensagem, bot)
   fornoobs(alvo,contexto, mensagem, bot)
 }
-function entrouNoChatDaTwitch(endereco, porta) {
-  console.log(`Bot entrou no endereço ${endereco}:${porta}`);
-}
-client.on("connected", entrouNoChatDaTwitch);
-client.on("message", commands)
+client.on("connected", (endereco,porta) => {
+  console.log("O bot ta on!")
+});
+client.on("message", runCommands)

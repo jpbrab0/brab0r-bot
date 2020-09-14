@@ -10,3 +10,5 @@ TwitchTv bot feito com as tecnologias:
 * Tmi.js(Biblioteca da twitch para chatbot)
 
 **Atenção**!!! **Este código pode não ter as melhores práticas**! Ainda vai ter **novas features** ao longo do tempo!
+
+###### o código mais feio que vc vai ver hj...
