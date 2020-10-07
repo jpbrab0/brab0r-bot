@@ -1,9 +1,10 @@
+require("dotenv").config();
 const tmi = require("tmi.js");
 const fs = require("fs");
-const dotenv = require("dotenv");
+const express = require("express")
+const nunjucks = require("nunjucks")
+const server = express()
 // Definir opções de configuração
-
-dotenv.config();
 const opts = {
   identity: {
     username: "brab0bot",
@@ -16,6 +17,49 @@ const client = new tmi.client(opts);
 
 client.connect();
 
+server.use(express.static("public"))
+
+// Configurando para receber dados do request.body.
+server.use(express.urlencoded({extended:true}))
+server.use(express.json());
+
+// Config da template engine.
+server.set("view engine", "njk")
+nunjucks.configure("src/app/views", {
+    express:server,
+    autoescape:false,
+    noCache:true,
+})
+
+// Rotas do app web
+
+server.get ("/", (req, res) => {
+  return res.render("index")
+})
+server.get("/divulgacao", (req, res) => {
+  return res.render("divulgacao")
+})
+server.post("/divulgacao", (req, res) => {
+  const keys = Object.keys(req.body)
+
+  for(key of keys){
+    if(req.body[key] == ""){
+      return res.send("Por favor, digite a pessoa a ser divulgada.")
+    }
+  }
+
+  const { nick } = req.body
+
+  client.say("#jpbrab0",`!sh-so ${nick}`)
+  return res.redirect("/")
+})
+server.listen(3333, () => {
+  return console.log("o server está on!")
+})
+
+// Comandos da twitch
+
+let lurk = 0
 function runCommands(alvo, contexto, mensagem, bot) {
   if (bot) {
     return;
@@ -24,7 +68,7 @@ function runCommands(alvo, contexto, mensagem, bot) {
   if (String(mensagem).includes("!so")) {
     var pessoaDivulgada = String(mensagem).split(" ")[1];
     client.say(alvo, `!sh-so ${pessoaDivulgada}`);
-  } else if (String(mensagem).includes("!ban")) {
+  } /* Comando de ban */else if (String(mensagem).includes("!ban")) {
     let msgRandom = Math.floor(Math.random() * 5) + 1;
     let alvoBan = String(mensagem).split(" ");
     if (alvoBan[1] == undefined) {
@@ -65,8 +109,11 @@ function runCommands(alvo, contexto, mensagem, bot) {
           );
       }
     }
-  } else if (String(mensagem).includes("!garen")) {
-    client.say(alvo, "As vezes o garen aparece aq...");
+  }else if (String(mensagem).includes("!live")) {
+    client.say(alvo, "As vezes eu faço live...");
+  }else if(String(mensagem).toLowerCase().includes("lurk")){
+    lurk++
+    return client.say(alvo, `${lurk} pessoa(s) deixaram o lurk nessa live!`)
   } else if (String(mensagem).includes("!meta")) {
     client.say(
       alvo,
@@ -97,7 +144,7 @@ function runCommands(alvo, contexto, mensagem, bot) {
     );
   } else if (String(mensagem).includes("salve")) {
     client.say(alvo, `Olá, seja bem-vindo(a) a live! pepeDD  `);
-  }
+  } 
 }
 client.on("connected", (endereco, porta) => {
   console.log("O bot ta on!");

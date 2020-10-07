@@ -1,0 +1,10 @@
+main .options{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 13px;
+    align-items: center;
+}
+main .options .card{
+    width: auto;
+    margin: 16px auto;
+}
