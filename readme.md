@@ -15,4 +15,4 @@ TwitchTv bot feito com as tecnologias:
 
 ###### o código mais feio que vc vai ver hj... __MAS TA FUNCIONANDO__ 
 
-![peeporage](https://static-cdn.jtvnw.net/jtv_user_pictures/d78a6ac7-27cd-419c-a45f-26fbe325820e-profile_image-300x300.png)
+<p align="center"><img src="https://static-cdn.jtvnw.net/jtv_user_pictures/d78a6ac7-27cd-419c-a45f-26fbe325820e-profile_image-150x150.png" /></p>
