@@ -10,6 +10,8 @@ TwitchTv bot feito com as tecnologias:
 * Javascript
 * NodeJs
 * Tmi.js(Biblioteca da twitch para chatbot)
+* Nodemailer(Biblioteca para enviar emails através do nodeJs)
+* Discord.js(Biblioteca para fazer conexão com o discord)
 
 **Atenção**!!! **Este código pode não ter as melhores práticas**! Ainda vai ter **novas features** ao longo do tempo!
 
