@@ -1,0 +1,12 @@
+{
+	
+	"Print to console": {
+		"scope": "javascript,typescript",
+		"prefix": "commands",
+		"body": [
+			"exports.default = (client, target, context, msg) => {",
+			"}"
+		],
+		"description": "Log output to console"
+	}
+}
