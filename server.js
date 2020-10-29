@@ -118,7 +118,7 @@ client.on("connected", (endereco, porta) => {
   console.log("O bot ta on!");
 });
 client.on("raided", (channel, username, viewers) => {
-  client.say("#jpbrab0", `PogChamp ${username} invadiu a live com ${viewers}!! WOW \o/ \o/ \o/ `)
+  client.say("#jpbrab0", `PogChamp ${username} invadiu a live com ${viewers} viewers!! WOW \o/ \o/ \o/ `)
 });
 client.on("cheer", (channel, userstate, message) => {
   client.say("#jpbrab0", `PogChamp vlw pelos bits!`)
