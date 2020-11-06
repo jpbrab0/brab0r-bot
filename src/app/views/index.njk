@@ -14,41 +14,45 @@
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">Divulgação</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Divulgue alguem com o brab0r-bot</h6>
-                        <p class="card-text">Esse comando divulga alguem na live.</p>
-                        <a href="/divulgacao" class="card-link">Link da página</a>
+                        <form action="/divulgacao" method="post">
+                            <input type="text" name="nick" placeholder="Pessoa a ser divulgada.">
+                            <p></p>
+                            <button type="submit" class="btn btn-danger">Divulgar!</button>
+                        </form>
                     </div>
                 </div>
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">Github</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Divulgue o github de alguem.</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="/github" class="card-link">link da página</a>
+                        <form action="/github" method="post">
+                            <input type="text" name="github">
+                            <p></p>
+                            <button type="submit" class="btn btn-warning">Divulgar</button>
+                        </form>
                     </div>
                 </div>
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">4Noobs</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Divulgar o 4noobs da he4rt devs</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="/4Noobs" class="card-link">Link da página</a>
+                        <form action="/4Noobs" method="post">
+                            <button type="submit" class="btn btn-primary">Divulgar 4Noobs</button>
+                        </form>
                     </div>
                 </div>
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">Discord</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Divulga o discord do canal da twitch</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="/discord" class="card-link">Link da página</a>
+                        <form action="/discord" method="post">
+                            <button type="submit" class="btn btn-info">Divulgar discord do canal</button>
+                        </form>
                     </div>
                 </div>
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">Divulgar live discord</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Divulga live discord</h6>
-                        <p class="card-text">Com apenas um clique divulgue a live do jpbrab0!</p>
-                        <a href="/divulgadiscord" class="card-link">Link da página</a>
+                        <form action="/divulgadiscord" method="post">
+                            <button type="submit" class="btn btn-info">Divulgar live!</button>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -6,7 +6,6 @@ const express = require("express");
 const nunjucks = require("nunjucks");
 const server = express();
 server.use(express.static("public"));
-
 const webhookClient = new Discord.WebhookClient('766120636627550208', '7C3n1sofSYyHKxQuTz4dZYHrRAN1Q6eqLx5LnPN-6vAjoMWmkbZL4sRrrw63Z4lW32mC');
 
 // Configurando para receber dados do request.body e config das rotas da aplicação.
@@ -23,9 +22,6 @@ nunjucks.configure("src/app/views", {
 server.get("/", (req, res) => {
   return res.render("index");
 });
-server.get("/divulgacao", (req, res) => {
-  return res.render("divulgacao");
-});
 server.post("/divulgacao", (req, res) => {
   const keys = Object.keys(req.body);
 
@@ -39,9 +35,6 @@ server.post("/divulgacao", (req, res) => {
 
   client.say("#jpbrab0", `!sh-so ${nick}`);
   return res.redirect("/");
-});
-server.get("/github", (req, res) => {
-  return res.render("github");
 });
 server.post("/github", (req, res) => {
   const keys = Object.keys(req.body);
@@ -57,9 +50,6 @@ server.post("/github", (req, res) => {
 
   return res.redirect("/");
 });
-server.get("/4Noobs", (req, res) => {
-  return res.render("4noobs");
-});
 server.post("/4Noobs", (req, res) => {
   client.say(
     "#jpbrab0",
@@ -68,9 +58,6 @@ server.post("/4Noobs", (req, res) => {
 
   return res.redirect("/");
 });
-server.get("/discord", (req, res) => {
-  return res.render("discord");
-});
 server.post("/discord", (req, res) => {
   client.say(
     "#jpbrab0",
@@ -78,9 +65,6 @@ server.post("/discord", (req, res) => {
   );
 
   return res.redirect("/");
-});
-server.get("/divulgadiscord", (req, res) => {
-  return res.render("divulgacaoDiscord");
 });
 server.post("/divulgadiscord", (req, res) => {
   let message =
@@ -113,7 +97,7 @@ fs.readdirSync(`${__dirname}/commands`)
       if (isBot) return;
       require(`./commands/${file}`).default(client, target, context, message);
     });
-});
+  });
 client.on("connected", (endereco, porta) => {
   console.log("O bot ta on!");
 });
@@ -135,6 +119,11 @@ client.on("subgift", (channel, username, streakMonths, recipient, methods, users
 client.on("resub", (channel, username, months, message, userstate, methods) => {
   client.say("#jpbrab0", `${username} deu resub por ${months}!`)
 });
+// client.on("raw_message", (messageCloned, message) => {
+//   if (String(message.raw).includes("custom-reward-id=f18fe744-3e7c-4176-9d9c-5ac230dd7e62")) {
+//     client.say("#jpbrab0", "foi")
+//   }
+// });
 // configurando bot discord.
 const bot = new Discord.Client()
 
