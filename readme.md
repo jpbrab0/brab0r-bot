@@ -5,16 +5,18 @@
 
 Com este projeto, eu posso controlar os comandos do bot como, por exemplo, divulgar alguem na minha live.
 
-TwitchTv bot feito com as tecnologias:
+O brab0r-bot foi feito com as seguintes tecnologias:
 
 * Javascript
 * NodeJs
+* DotEnv (Biblioteca para pegar dados do arquivo ``.env``)
 * Tmi.js(Biblioteca da twitch para chatbot)
-* Nodemailer(Biblioteca para enviar emails através do nodeJs)
 * Discord.js(Biblioteca para fazer conexão com o discord)
+* OBSWebSocket (Biblioteca para conectar o seu projeto JavaScript com o websocket do obs)
 
-**Atenção**!!! **Este código pode não ter as melhores práticas**! Ainda vai ter **novas features** ao longo do tempo!
+## Projeto em tempo real
 
-###### o código mais feio que vc vai ver hj... __MAS TA FUNCIONANDO__ 
+Caso queira ver o bot funcionando acesse 
+[twitch.tv/jpbrab0](https://twitch.tv/jpbrab0) às terças e quintas 16H no horário de Brasilia
 
-<p align="center"><img src="https://static-cdn.jtvnw.net/jtv_user_pictures/d78a6ac7-27cd-419c-a45f-26fbe325820e-profile_image-150x150.png" /></p>
+**O projeto é closed-source**
