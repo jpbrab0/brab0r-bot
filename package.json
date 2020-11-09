@@ -17,6 +17,7 @@
     "express": "^4.17.1",
     "nodemailer": "^6.4.14",
     "nunjucks": "^3.2.2",
+    "obs-websocket-js": "^4.0.2",
     "say": "^0.16.0",
     "text-to-speech-js": "^1.1.10",
     "tmi.js": "^1.5.0",

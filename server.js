@@ -3,10 +3,19 @@ const tmi = require("tmi.js");
 const Discord = require("discord.js")
 const fs = require("fs");
 const express = require("express");
+// - Configurando OBSWebSocket.
+const OBSWebSocket = require("obs-websocket-js")
+const obs = new OBSWebSocket()
+obs.connect({
+  address: 'localhost:4444',
+  password: process.env.OBS_PASSWORD
+}, (err) => {
+  console.error(err)
+})
+// - Configurando server e nunjucks.
 const nunjucks = require("nunjucks");
 const server = express();
 server.use(express.static("public"));
-const webhookClient = new Discord.WebhookClient('766120636627550208', '7C3n1sofSYyHKxQuTz4dZYHrRAN1Q6eqLx5LnPN-6vAjoMWmkbZL4sRrrw63Z4lW32mC');
 
 // Configurando para receber dados do request.body e config das rotas da aplicação.
 server.use(express.urlencoded({ extended: true }));
@@ -103,29 +112,90 @@ client.on("connected", (endereco, porta) => {
 });
 client.on("raided", (channel, username, viewers) => {
   client.say("#jpbrab0", `PogChamp ${username} invadiu a live com ${viewers} viewers!! WOW \o/ \o/ \o/ `)
+  obs.send('SetCurrentScene', {
+    'scene-name': 'Raid'
+  });
+  setTimeout(function(){
+    return obs.send("SetCurrentScene", {
+      'scene-name': 'Chat'
+    })
+  },20000)
 });
 client.on("cheer", (channel, userstate, message) => {
   client.say("#jpbrab0", `PogChamp vlw pelos bits!`)
+  obs.send('SetCurrentScene', {
+    'scene-name': 'Bits'
+  });
+  setTimeout(function(){
+    return obs.send("SetCurrentScene", {
+      'scene-name': 'Chat'
+    })
+  },20000)
 });
 client.on("subscription", (channel, username, method, message, userstate) => {
   client.say("#jpbrab0", `PogChamp ${username} deu sub! Muito obg por acreditar no meu conteúdo! `)
+  obs.send('SetCurrentScene', {
+    'scene-name': 'Sub'
+  });
+  setTimeout(function(){
+    return obs.send("SetCurrentScene", {
+      'scene-name': 'Chat'
+    })
+  },20000)
+
 });
 client.on("submysterygift", (channel, username, numbOfSubs, methods, userstate) => {
   client.say("#jpbrab0", `DENOnimus distribuiu ${numbOfSubs} subs no chat!`)
+  obs.send("SetCurrentScene", {
+    'scene-name': 'denonimus'
+  })
+  setTimeout(function(){
+    return obs.send("SetCurrentScene", {
+      'scene-name': 'Chat'
+    })
+  },20000)
+
 });
 client.on("subgift", (channel, username, streakMonths, recipient, methods, userstate) => {
   client.say("#jpbrab0", `${username} distribuiu um sub para ${recipient}!`)
+  obs.send("SetCurrentScene", {
+    'scene-name': 'SubGift'
+  })
+  setTimeout(function(){
+    return obs.send("SetCurrentScene", {
+      'scene-name': 'Chat'
+    })
+  },20000)
 });
 client.on("resub", (channel, username, months, message, userstate, methods) => {
   client.say("#jpbrab0", `${username} deu resub por ${months}!`)
+  obs.send("SetCurrentScene", {
+    'scene-name': 'Resub'
+  })
+  setTimeout(function(){
+    return obs.send("SetCurrentScene", {
+      'scene-name': 'Chat'
+    })
+  },20000)
 });
 // client.on("raw_message", (messageCloned, message) => {
 //   if (String(message.raw).includes("custom-reward-id=f18fe744-3e7c-4176-9d9c-5ac230dd7e62")) {
 //     client.say("#jpbrab0", "foi")
+//     obs.send('SetCurrentScene', {
+//       'scene-name': 'Sub'
+//     });
+//     setTimeout(function(){
+//       return obs.send("SetCurrentScene", {
+//         'scene-name': 'Chat'
+//       })
+//     },10000)
 //   }
 // });
-// configurando bot discord.
+
+// - Configurando bot discord.
 const bot = new Discord.Client()
+const webhookClient = new Discord.WebhookClient('766120636627550208', '7C3n1sofSYyHKxQuTz4dZYHrRAN1Q6eqLx5LnPN-6vAjoMWmkbZL4sRrrw63Z4lW32mC');
+
 
 bot.login(process.env.DISCORD_TOKEN)
 
