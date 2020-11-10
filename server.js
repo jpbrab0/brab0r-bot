@@ -178,19 +178,19 @@ client.on("resub", (channel, username, months, message, userstate, methods) => {
     })
   },20000)
 });
-// client.on("raw_message", (messageCloned, message) => {
-//   if (String(message.raw).includes("custom-reward-id=f18fe744-3e7c-4176-9d9c-5ac230dd7e62")) {
-//     client.say("#jpbrab0", "foi")
-//     obs.send('SetCurrentScene', {
-//       'scene-name': 'Sub'
-//     });
-//     setTimeout(function(){
-//       return obs.send("SetCurrentScene", {
-//         'scene-name': 'Chat'
-//       })
-//     },10000)
-//   }
-// });
+//  client.on("raw_message", (messageCloned, message) => {
+//    if (String(message.raw).includes("custom-reward-id=f18fe744-3e7c-4176-9d9c-5ac230dd7e62")) {
+//      client.say("#jpbrab0", "foi")
+//      obs.send('SetCurrentScene', {
+//        'scene-name': 'Sub'
+//      });
+//      setTimeout(function(){
+//        return obs.send("SetCurrentScene", {
+//          'scene-name': 'Chat'
+//        })
+//      },10000)
+//    }
+//  });
 
 // - Configurando bot discord.
 const bot = new Discord.Client()
